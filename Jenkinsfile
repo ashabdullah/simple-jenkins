@@ -3,7 +3,7 @@ node {
     stage('repository_pull') {
       // Checkout the master branch of the Laravel framework repository
       sh 'env | sort'
-      git branch: 'master', url: 'https://github.com/ashabdullah/Laravel-wallet.git'
+      git branch: 'master', url: 'https://github.com/ashabdullah/simple-jenkins.git'
     }
     
    // stage("composer_install") {
