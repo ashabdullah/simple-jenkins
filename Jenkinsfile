@@ -1,4 +1,5 @@
-node {
+node 
+{
     
     stage('repository_pull') {
       // Checkout the master branch of the Laravel framework repository
