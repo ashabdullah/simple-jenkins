@@ -7,14 +7,14 @@ node
       git branch: 'master', url: 'https://github.com/ashabdullah/simple-jenkins.git'
     }
     
-   // stage("composer_install") {
+    stage("composer_install") {
       // Run `composer update` as a shell script
-    //  sh 'composer install'
+      sh 'composer install'
    // }
     
-    //stage("phpunit") {
+    stage("phpunit") {
       // Run PHPUnit
-     // sh 'vendor/bin/phpunit'
+      sh 'vendor/bin/phpunit'
 
       // If this is the master or develop branch being built then run
       // additional integration tests
