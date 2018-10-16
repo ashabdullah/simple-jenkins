@@ -9,6 +9,10 @@ node {
     stage("composer_install") {
       // Run `composer update` as a shell script
       sh 'composer install'
+      sh 'cp .env.example .env'
+      sh 'php artisan key:generate'
+      sh 'php artisan config:clear'
+      sh 'php artisan config:cache'
     }
     
     stage("phpunit") {
