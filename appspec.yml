@@ -6,14 +6,14 @@ files:
 permissions:
   - object: /home/forge/app
     owner: root
-    group: www-data
+    group: root
     mode: 775
     type:
       - file
 
   - object: /home/forge/app
     owner: root
-    group: www-data
+    group: root
     mode: 755
     type:
       - directory
