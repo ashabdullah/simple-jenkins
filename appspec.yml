@@ -31,10 +31,10 @@ hooks:
 #    - location: deployment/scripts/download_bundle.sh
 #      timeout: 1200
 #      runas: forge
-  AfterInstall:
-    - location: /after_install.sh
-      timeout: 300
-      runas: root
+#  AfterInstall:
+#    - location: /after_install.sh
+#      timeout: 300
+#      runas: root
 #  ApplicationStart:
 #    - location: deployment/scripts/application_start.sh
 #      timeout: 300
