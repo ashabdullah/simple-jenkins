@@ -32,7 +32,7 @@ hooks:
 #      timeout: 1200
 #      runas: forge
   AfterInstall:
-    - location: deployment/scripts/after_install.sh
+    - location: /after_install.sh
       timeout: 300
       runas: forge
 #  ApplicationStart:
