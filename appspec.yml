@@ -5,14 +5,14 @@ files:
     destination: /home/forge/app
 permissions:
   - object: /home/forge/app
-    owner: root
+    owner: tomcat
     group: www-data
     mode: 775
     type:
       - file
 
   - object: /home/forge/app
-    owner: root
+    owner: tomcat
     group: www-data
     mode: 755
     type:
