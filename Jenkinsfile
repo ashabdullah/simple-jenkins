@@ -39,7 +39,10 @@ node {
       // Upload deployment assets to S3
       sh "aws s3 cp ${env.BUILD_TAG}.zip s3://jenkinscodedeploy-codedeploybucket-1syidevv1kpoy --region us-east-1"
     }
-
+    
+    stage('Deploy approval'){
+    input "Deploy to prod?"
+    }    
     stage("codedeploy_execute") {
       // Deploy assets
       switch (env.NODE_NAME) {
