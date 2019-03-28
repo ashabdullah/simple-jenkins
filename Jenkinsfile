@@ -8,11 +8,19 @@ node {
     
     stage("composer_install") {
       // Run `composer update` as a shell script
+      sh 'mysqladmin -uroot -p$UNITTEST_MYSQL_ROOT_PW create eoswallet'
+      sh 'mysqladmin -uroot -p$UNITTEST_MYSQL_ROOT_PW create eos_wallet_test'
       sh 'composer install'
       sh 'cp .env.example .env'
       sh 'php artisan key:generate'
       sh 'php artisan config:clear'
       sh 'php artisan config:cache'
+      sh 'mkdir -p storage/{sessions,views,cache,framework/{views,sessions}}'
+      sh 'php artisan vendor:publish'
+      sh 'php artisan key:generate'
+      sh 'php artisan migrate'
+      sh 'php artisan db:seed'
+      sh 'echo | php artisan passport:install -qn'
     }
     
     stage("phpunit") {
