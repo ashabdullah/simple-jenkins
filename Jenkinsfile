@@ -17,9 +17,9 @@ node {
       sh 'mkdir -p storage/{sessions,views,cache,framework/{views,sessions}}'
       sh 'php artisan vendor:publish'
       sh 'php artisan key:generate'
-      sh 'php artisan migrate'
-      sh 'php artisan db:seed'
-      sh 'echo | php artisan passport:install -qn'
+      //sh 'php artisan migrate'
+      //sh 'php artisan db:seed'
+      //sh 'echo | php artisan passport:install -qn'
     }
     
     stage("phpunit") {
