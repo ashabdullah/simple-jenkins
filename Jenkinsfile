@@ -5,11 +5,10 @@ node {
       sh 'env | sort'
       git branch: 'master', url: 'https://github.com/ashabdullah/simple-jenkins.git'
     }
-    
     stage("composer_install") {
       // Run `composer update` as a shell script
-      sh 'mysqladmin -uroot -p$UNITTEST_MYSQL_ROOT_PW create eoswallet'
-      sh 'mysqladmin -uroot -p$UNITTEST_MYSQL_ROOT_PW create eos_wallet_test'
+      // sh 'mysqladmin -uroot -p$UNITTEST_MYSQL_ROOT_PW create eoswallet'
+      // sh 'mysqladmin -uroot -p$UNITTEST_MYSQL_ROOT_PW create eos_wallet_test'
       sh 'composer install'
       sh 'cp .env.example .env'
       sh 'php artisan key:generate'
