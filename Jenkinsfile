@@ -5,6 +5,7 @@ node {
       sh 'env | sort'
       git branch: 'master', url: 'https://github.com/ashabdullah/simple-jenkins.git'
     }
+    
     stage("composer_install") {
       // Run `composer update` as a shell script
       // sh 'mysqladmin -uroot -p$UNITTEST_MYSQL_ROOT_PW create eoswallet'
@@ -15,9 +16,7 @@ node {
       sh 'php artisan config:clear'
       sh 'php artisan config:cache'
       sh 'mkdir -p storage/{sessions,views,cache,framework/{views,sessions}}'
-      sh 'php artisan vendor:publish'
-      sh 'php artisan key:generate'
-      //sh 'php artisan migrate'
+      sh 'php artisan vendor:publish
       //sh 'php artisan db:seed'
       //sh 'echo | php artisan passport:install -qn'
     }
