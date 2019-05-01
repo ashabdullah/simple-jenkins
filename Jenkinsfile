@@ -16,7 +16,7 @@ node {
       sh 'php artisan config:clear'
       sh 'php artisan config:cache'
       sh 'mkdir -p storage/{sessions,views,cache,framework/{views,sessions}}'
-      sh 'php artisan vendor:publish'
+      // sh 'php artisan vendor:publish'
       //sh 'php artisan db:seed'
       //sh 'echo | php artisan passport:install -qn'
     }
@@ -55,9 +55,9 @@ node {
         case "master":
           stage("codedeploy") {
             // Push zip to CodeDeploy
-            sh "aws deploy push --application-name JenkinsCodeDeploy-DemoApplication-1TQW4Q5K6NTU5 --s3-location s3://jenkinscodedeploy-codedeploybucket-1syidevv1kpoy/${env.BUILD_TAG}.zip --region us-east-1 --source ./"
+            sh "aws deploy push --application-name JenkinsCodeDeploy-DemoApplication-D99GG6EWTYJY --s3-location s3://jenkinscodedeploy-codedeploybucket-1syidevv1kpoy/${env.BUILD_TAG}.zip --region us-east-1 --source ./"
             // Deploy zip
-            sh "aws deploy create-deployment --application-name JenkinsCodeDeploy-DemoApplication-1TQW4Q5K6NTU5 --s3-location bucket=jenkinscodedeploy-codedeploybucket-1syidevv1kpoy,key=${env.BUILD_TAG}.zip,bundleType=zip --deployment-group-name JenkinsCodeDeploy-DemoFleet-1WOBX470F7ACF --deployment-config-name CodeDeployDefault.OneAtATime --description 'Deploying App Build: ${env.BUILD_NUMBER}' --region us-east-1"
+            sh "aws deploy create-deployment --application-name JenkinsCodeDeploy-DemoApplication-D99GG6EWTYJY --s3-location bucket=jenkinscodedeploy-codedeploybucket-1syidevv1kpoy,key=${env.BUILD_TAG}.zip,bundleType=zip --deployment-group-name JenkinsCodeDeploy-DemoFleet-FTZ157ONXELL --deployment-config-name CodeDeployDefault.OneAtATime --description 'Deploying App Build: ${env.BUILD_NUMBER}' --region us-east-1"
             }
         break
         case "develop":
