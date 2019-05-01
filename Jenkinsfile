@@ -12,7 +12,7 @@ node {
       // sh 'mysqladmin -uroot -p$UNITTEST_MYSQL_ROOT_PW create eos_wallet_test'
       sh 'composer install'
       sh 'cp .env.example .env'
-      // sh 'php artisan key:generate'
+      sh 'php artisan key:generate'
       sh 'php artisan config:clear'
       sh 'php artisan config:cache'
       sh 'mkdir -p storage/{sessions,views,cache,framework/{views,sessions}}'
