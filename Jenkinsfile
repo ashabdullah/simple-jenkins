@@ -11,7 +11,7 @@ node {
       // sh 'mysqladmin -uroot -p$UNITTEST_MYSQL_ROOT_PW create eoswallet'
       // sh 'mysqladmin -uroot -p$UNITTEST_MYSQL_ROOT_PW create eos_wallet_test'
       sh 'composer install'
-      sh 'cp .env.example .env'
+      // sh 'cp .env.example .env'
       // sh 'php artisan key:generate'
       // sh 'php artisan config:clear'
       // sh 'php artisan config:cache'
